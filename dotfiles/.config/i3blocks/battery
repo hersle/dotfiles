@@ -1,0 +1,34 @@
+#!/bin/sh
+
+bats=/sys/class/power_supply/BAT*
+
+energy_now=0
+energy_full=0
+charge=-
+
+for bat in $bats; do
+	energy_now=$(($energy_now + $(cat $bat/energy_now)))
+	energy_full=$(($energy_full + $(cat $bat/energy_full)))
+	if [ $(cat $bat/status) = Charging ]; then
+		charge=+
+	fi
+done
+percent=$((100 * $energy_now / $energy_full))
+
+# Linearly scale color from red to green
+if [ $percent -le 50 ]; then
+	r=255
+	g=$((255 * $percent / 50))
+else
+	r=$((255 - 255 * ($percent - 50) / 50))
+	g=255
+fi
+b=0
+
+output_full=$(printf "% 3d%% [%s]" $percent $charge)
+output_short=$output_full
+color=$(printf "#%02X%02X%02X" $r $g $b)
+
+echo $output_full
+echo $output_short
+echo $color

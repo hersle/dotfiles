@@ -1,0 +1,23 @@
+#!/bin/sh
+
+brightness_setter=$HOME/Scripts/backlight 
+
+case $BLOCK_BUTTON in
+	1) $brightness_setter   0% ;;
+	2) $brightness_setter  50% ;;
+	3) $brightness_setter 100% ;;
+	4) $brightness_setter  +5% ;;
+	5) $brightness_setter  -5% ;;
+esac
+
+percent=$($brightness_setter)
+percent=$(echo $percent | cut -d% -f1)
+
+output_full=$(printf "% 3d%%" $percent)
+output_short=$output_full
+rgb=$((128 + (255 - 128) * $percent / 100))
+color=$(printf "#%02X%02X%02X" $rgb $rgb $rgb)
+
+echo "$output_full"
+echo "$output_short"
+echo "$color"

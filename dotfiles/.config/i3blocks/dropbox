@@ -1,0 +1,26 @@
+#!/bin/sh
+
+status=$(dropbox status)
+
+case $status in 
+	"Up to date")
+		#text="synced"
+		text=
+		color="#00ff00"
+		;;
+	Syncing*)
+		text=
+		color="#ffff00"
+		;;
+	*)
+		text="$status"
+		color="#ff0000"
+		;;
+esac
+
+output_full="$text"
+output_short=$output_full
+
+echo $output_full
+echo $output_short
+echo $color

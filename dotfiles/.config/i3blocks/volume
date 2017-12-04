@@ -1,0 +1,21 @@
+#!/bin/sh
+
+volume_setter=$HOME/Scripts/volume
+
+case $BLOCK_BUTTON in
+	1) value=$($volume_setter mute) ;;
+	2) pavucontrol                  ;;
+	3) value=$($volume_setter mute) ;;
+	4) value=$($volume_setter  +5%) ;;
+	5) value=$($volume_setter  -5%) ;;
+esac
+
+value=$($volume_setter)
+
+output_full=$value
+output_short=$output_full
+color="#FFFFFF"
+
+echo $output_full
+echo $output_short
+echo $color

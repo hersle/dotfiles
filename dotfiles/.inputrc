@@ -1,0 +1,11 @@
+# Enable vi editing mode
+set editing-mode vi
+
+# Include trailing slash when auto-completing symbolic links to directories
+set mark-symlinked-directories on
+
+# Display completions with different colors based on their types
+set colored-stats on
+
+# Perform case-insensitive completion
+set completion-ignore-case on

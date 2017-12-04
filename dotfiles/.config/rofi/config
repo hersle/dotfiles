@@ -1,0 +1,49 @@
+! behavior
+rofi.modi: drun
+rofi.case-sensitive: false
+rofi.m: -5
+rofi.show-match: true
+
+! visual settings
+rofi.display-drun: Launch
+rofi.width: 50
+rofi.lines: 10
+rofi.font: monospace bold 14
+rofi.color-normal: #303030,#ffffff,#282828,#2080ff,#ffffff
+rofi.color-urgent: #303030,#ffffff,#282828,#2080ff,#ffffff
+rofi.color-active: #303030,#ffffff,#282828,#2080ff,#ffffff
+rofi.color-window: #303030,#ffffff,#ffffff
+! #include "/usr/share/rofi/themes/android_notification.theme"
+! #include "/usr/share/rofi/themes/glue_pro_blue.theme"
+! #include "/usr/share/rofi/themes/purple.theme"
+rofi.bw: 0
+rofi.padding: 6
+rofi.line-margin: 0
+rofi.line-padding: 8
+rofi.separator-style: none
+
+! scrolling
+rofi.hide-scrollbar: true
+rofi.scrollbar-width: 8
+rofi.cycle: true
+
+! key bindings
+rofi.kb-clear-line: Super+Return
+rofi.kb-move-front: Home
+rofi.kb-move-end: End
+rofi.kb-move-word-back: Control+Left
+rofi.kb-move-word-forward: Control+Right
+rofi.kb-move-char-back: Left
+rofi.kb-move-char-forward: Right
+rofi.kb-remove-word-back: Control+BackSpace
+rofi.kb-remove-word-forward: Control+Delete
+rofi.kb-remove-char-forward: Delete
+rofi.kb-remove-char-back: BackSpace
+rofi.kb-accept-entry: Return
+rofi.kb-row-up: Up,K
+rofi.kb-row-down: Down,J
+rofi.kb-page-prev: Page_Up
+rofi.kb-page-next: Page_Down
+rofi.kb-row-first: Home,KP_Home
+rofi.kb-row-last: End,KP_End
+rofi.kb-cancel: Escape,Super+q

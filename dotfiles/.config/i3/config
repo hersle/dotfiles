@@ -1,0 +1,201 @@
+# http://i3wm.org/docs/userguide.html
+
+# TODO: imagemagick "import" screenshot?
+
+focus_on_window_activation urgent
+
+set $mod   Mod4
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+# font for window titles
+font pango:Roboto Medium 9
+
+bindsym $mod+q kill
+
+# change focus
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+period split h
+bindsym $mod+comma  split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+bindsym $mod+w layout stacking
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+floating_modifier $mod
+
+# toggle tiling / floating
+bindsym $mod+Shift+f floating toggle
+
+# change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+# bindsym $mod+a focus parent
+
+# focus the child container
+# bindsym $mod+Shift+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# reload the configuration file
+# bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -b 'test' 'test'"
+
+# resize window (you can also use the mouse for that)
+set $mode_resize "resize"
+bindsym $mod+r mode $mode_resize
+mode $mode_resize {
+	bindsym $left  resize shrink width 10 px or 10 ppt
+	bindsym $down  resize shrink height 10 px or 10 ppt
+	bindsym $up    resize grow   height 10 px or 10 ppt
+	bindsym $right resize grow   width 10 px or 10 ppt
+
+	bindsym Escape mode "default"
+}
+
+set $mode_launch "launch"
+bindsym $mod+o mode $mode_launch
+mode $mode_launch {
+	bindsym f exec firefox
+	bindsym i exec inkscape
+	# TODO: bluetooth
+	# TODO: volume control
+	bindsym Escape mode "default"
+}
+
+set $mode_power "e[x]it [p]oweroff [h]ibernate [s]uspend [r]eboot"
+bindsym $mod+Escape mode $mode_power
+mode $mode_power {
+	bindsym x exec i3-msg exit
+	bindsym p mode "default"; exec systemctl poweroff
+	bindsym h mode "default"; exec systemctl hibernate
+	bindsym s mode "default"; exec systemctl suspend
+	bindsym r mode "default"; exec systemctl reboot
+	bindsym Escape mode "default"
+	bindsym $mod+Escape mode "default"
+}
+
+set $mode_presentation "1: primary only  2: mirror  3: extend  4: secondary only"
+bindsym XF86Display mode $mode_presentation
+bindsym $mod+p mode $mode_presentation
+mode $mode_presentation {
+	bindsym 1 mode "default"; \
+		exec xrandr --output eDP-1 --auto --output HDMI-2 --off
+	bindsym 2 mode "default"; \
+		exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --same-as eDP-1
+	bindsym 3 mode "default"; \
+		exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --right-of eDP-1
+	bindsym 4 mode "default"; \
+		exec xrandr --output eDP-1 --off  --output HDMI-2 --auto
+	bindsym Escape mode "default"
+	bindsym XF86Display mode "default"
+	bindsym $mod+p mode "default"
+}
+
+
+ #bindsym $mod+Return exec dmenu_run
+bindsym $mod+Return exec rofi -show drun
+bindsym $mod+Shift+Return exec xfce4-terminal
+
+bindsym XF86AudioRaiseVolume exec "/home/herman/Scripts/volume +5%; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
+bindsym XF86AudioLowerVolume exec "/home/herman/Scripts/volume -5%; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
+bindsym XF86AudioMute exec "/home/herman/Scripts/volume mute; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
+
+# TODO: reload i3blocks spotify thing
+# bindsym Control+Shift+p exec "playerctl play-pause"
+# bindsym Control+Shift+space exec "playerctl play-pause"
+# bindsym Control+Shift+Left exec "playerctl previous"
+# bindsym Control+Shift+Right exec "playerctl next"
+# bindsym Control+Shift+Up exec "/home/herman/Scripts/volume +5%; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
+# bindsym Control+Shift+Down exec "/home/herman/Scripts/volume -5%; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
+
+
+bindsym XF86MonBrightnessUp exec "/home/herman/Scripts/backlight +10%; kill -RTMIN+3 $(pidof /usr/bin/i3blocks)"
+bindsym XF86MonBrightnessDown exec "/home/herman/Scripts/backlight -10%; kill -RTMIN+3 $(pidof /usr/bin/i3blocks)"
+
+# visual
+# comment to include title bar
+new_window pixel 
+hide_edge_borders both
+
+# client.focused          #000000 #000000 #000000 #000000 #000000
+# client.focused_inactive #000000 #000000 #000000 #000000 #000000
+# client.unfocused        #000000 #000000 #000000 #000000 #000000
+# client.urgent           #000000 #000000 #000000 #000000 #000000
+# client.placeholder      #000000 #000000 #000000 #000000 #000000
+# client.background       #ff0000
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	font pango:Roboto Bold 16, FontAwesome 16, Roboto Medium 10
+	status_command i3blocks
+	separator_symbol "|"
+	position top
+	tray_output none
+
+	colors {
+		background #303030
+		statusline #a0a0a0 # default text color
+		separator  #ff8000
+
+		# on focused monitor
+		# focused_background
+		# focused_statusline 1
+		# focused_separator
+
+		# border bg text
+		focused_workspace  #808080 #a0a0a0 #303030
+		active_workspace   #303030 #303030 #ffffff
+		inactive_workspace #303030 #303030 #a0a0a0
+		urgent_workspace   #ff0000 #ff0000 #ff0000
+
+		# binding mode indicator (e.g. "power")
+		binding_mode #ff8000 #ff8000 #202020
+	}
+}
+
+exec --no-startup-id compton
+exec --no-startup-id dropbox start
+exec --no-startup-id xrdb -merge .Xresources
+exec --no-startup-id xset r rate 250 25
+exec --no-startup-id echo "Xft.dpi: $(xdpyinfo | grep resolution | tr -s ' ' | cut -d ' ' -f3 | cut -d'x' -f1)" | xrdb -merge
