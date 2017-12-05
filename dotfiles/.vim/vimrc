@@ -9,6 +9,24 @@
   " source ~/.vimrc_background
 " endif
 
+syntax on
+set showcmd			" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+"set autowrite		" Automatically save before commands like :next and :make
+"set hidden			" Hide buffers when they are abandoned
+"set mouse=a		" Enable mouse usage (all modes)
+
+set autoindent		" Keep indentation on new lines
+set noexpandtab		" Do not replace tabs with spaces
+set tabstop=4		" Show tabs as 4 spaces
+set shiftwidth=4
+set number			" Show line numbers
+set hlsearch		" Highlight search matches
+set wildmenu		" Show command suggestions when pressing tab
+
 " jellybeans
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
