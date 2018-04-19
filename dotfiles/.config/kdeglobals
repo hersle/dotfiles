@@ -156,11 +156,11 @@ XftAntialias=true
 XftHintStyle=hintnone
 dbfile=/home/herman/.mozilla/firefox/f0khq010.default/places.sqlite
 fixed=DejaVu Sans Mono,10,-1,5,50,0,0,0,0,0
-font=Roboto,9,-1,5,57,0,0,0,0,0
-menuFont=Roboto,9,-1,5,50,0,0,0,0,0
+font=Roboto,10,-1,5,57,0,0,0,0,0
+menuFont=Roboto,10,-1,5,50,0,0,0,0,0
 shadeSortColumn=true
-smallestReadableFont=Roboto,8,-1,5,50,0,0,0,0,0
-toolBarFont=Roboto,9,-1,5,50,0,0,0,0,0
+smallestReadableFont=Roboto,9,-1,5,50,0,0,0,0,0
+toolBarFont=Roboto,10,-1,5,50,0,0,0,0,0
 widgetStyle=Breeze
 
 [Icons]
@@ -307,7 +307,7 @@ Size=22
 [WM]
 activeBackground=71,80,87
 activeBlend=255,255,255
-activeFont=Roboto,9,-1,5,50,0,0,0,0,0
+activeFont=Roboto,10,-1,5,57,0,0,0,0,0
 activeForeground=239,240,241
 inactiveBackground=239,240,241
 inactiveBlend=75,71,67

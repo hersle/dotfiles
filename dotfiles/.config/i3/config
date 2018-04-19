@@ -15,13 +15,11 @@ font pango:Roboto Medium 9
 
 bindsym $mod+q kill
 
-# change focus
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
-# move focused window
 bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
@@ -51,7 +49,6 @@ bindsym $mod+Shift+f floating toggle
 # focus the child container
 # bindsym $mod+Shift+d focus child
 
-# switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -62,7 +59,6 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 
-# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -74,7 +70,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 
 # reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -93,7 +89,7 @@ mode $mode_resize {
 }
 
 set $mode_launch "launch"
-bindsym $mod+o mode $mode_launch
+# bindsym $mod+o mode $mode_launch
 mode $mode_launch {
 	bindsym f exec firefox
 	bindsym i exec inkscape
@@ -133,8 +129,11 @@ mode $mode_presentation {
 
 
  #bindsym $mod+Return exec dmenu_run
-bindsym $mod+Return exec rofi -show drun
-bindsym $mod+Shift+Return exec xfce4-terminal
+# bindsym $mod+Return exec rofi -show drun
+bindsym $mod+Return exec "rofi -modi drun,File:$HOME/Scripts/rofifinder.sh -sidebar-mode -mesg hi -show drun"
+# -show drun
+bindsym $mod+Shift+w exec rofi -show window
+bindsym $mod+Shift+Return exec lilyterm
 
 bindsym XF86AudioRaiseVolume exec "/home/herman/Scripts/volume +5%; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
 bindsym XF86AudioLowerVolume exec "/home/herman/Scripts/volume -5%; kill -RTMIN+1 $(pidof /usr/bin/i3blocks)"
@@ -194,6 +193,7 @@ bar {
 	}
 }
 
+exec --no-startup-id hsetroot -solid "#808080"
 exec --no-startup-id compton
 exec --no-startup-id dropbox start
 exec --no-startup-id xrdb -merge .Xresources

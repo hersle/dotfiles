@@ -1,5 +1,5 @@
 ! behavior
-rofi.modi: drun
+! rofi.modi: drun
 rofi.case-sensitive: false
 rofi.m: -5
 rofi.show-match: true
@@ -8,7 +8,7 @@ rofi.show-match: true
 rofi.display-drun: Launch
 rofi.width: 50
 rofi.lines: 10
-rofi.font: monospace bold 14
+rofi.font: monospace bold 12
 rofi.color-normal: #303030,#ffffff,#282828,#2080ff,#ffffff
 rofi.color-urgent: #303030,#ffffff,#282828,#2080ff,#ffffff
 rofi.color-active: #303030,#ffffff,#282828,#2080ff,#ffffff
@@ -28,7 +28,6 @@ rofi.scrollbar-width: 8
 rofi.cycle: true
 
 ! key bindings
-rofi.kb-clear-line: Super+Return
 rofi.kb-move-front: Home
 rofi.kb-move-end: End
 rofi.kb-move-word-back: Control+Left
@@ -47,3 +46,4 @@ rofi.kb-page-next: Page_Down
 rofi.kb-row-first: Home,KP_Home
 rofi.kb-row-last: End,KP_End
 rofi.kb-cancel: Escape,Super+q
+rofi.kb-mode-next: Super+Return
