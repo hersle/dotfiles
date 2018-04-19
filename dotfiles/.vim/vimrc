@@ -11,7 +11,7 @@
 
 syntax on
 set showcmd			" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
+set noshowmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
@@ -27,11 +27,14 @@ set number			" Show line numbers
 set hlsearch		" Highlight search matches
 set wildmenu		" Show command suggestions when pressing tab
 
+let g:loaded_matchparen = 1 " disable matching bracket highlighting
+
 " jellybeans
-let g:jellybeans_overrides = {
-\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
-colorscheme jellybeans
+"let g:jellybeans_overrides = {
+"\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+"\}
+"colorscheme jellybeans
+colorscheme monochrome
 
 nnoremap <leader>lc :w<CR>:!pdflatex %<CR>
-nnoremap <leader>lv :!xdg-open %:r.pdf &<CR><CR>
+nnoremap <leader>lv :!xdg-open %:r.pdf 2>/dev/null &<CR><CR>

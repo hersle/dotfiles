@@ -118,5 +118,8 @@
   <Action shortcut="Shift+S; !" name="view_render_mode_single"/>
   <Action shortcut="Shift+J" name="go_next"/>
   <Action shortcut="Shift+K" name="go_previous"/>
+  <Action shortcut="" name="mouse_select"/>
+  <Action shortcut="Ctrl+3" name="mouse_textselect"/>
+  <Action shortcut="Ctrl+S" name="file_save_as"/>
  </ActionProperties>
 </kpartgui>

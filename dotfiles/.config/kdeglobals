@@ -186,7 +186,7 @@ Breadcrumb Navigation=true
 Decoration position=0
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
-Preview Width=492
+Preview Width=490
 Previews=false
 Show Bookmarks=false
 Show Full Path=false
@@ -196,7 +196,7 @@ Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=143
+Speedbar Width=152
 View Style=Simple
 listViewIconSize=0
 

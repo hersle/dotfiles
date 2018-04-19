@@ -119,3 +119,11 @@ fi
 
 # enable vi command line editing mode
 set -o vi
+
+# go
+export GOPATH=$HOME/go
+
+# make scripts available
+if [ -d "$HOME/Scripts" ]; then
+	PATH="$HOME/Scripts:$PATH"
+fi
